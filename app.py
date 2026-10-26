@@ -1,20 +1,30 @@
 import streamlit as st
 import pandas as pd
+import os
 from sqlalchemy import create_engine
 
-# Page Configuration
+# Page Configuration (Called ONLY ONCE)
 st.set_page_config(page_title="E-Commerce Data Intelligence Hub", page_icon="🛍️", layout="wide")
 
-# Database Connection
-DB_USER = "postgres"
-DB_PASSWORD = "postgres123"
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "ecommerce_db"
-
+# Database Connection (Supports Streamlit Cloud Secrets and Local fallback)
 @st.cache_resource
 def get_engine():
-    return create_engine(f'postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}')
+    # 1. Check Streamlit Cloud Secrets first
+    if "DATABASE_URL" in st.secrets:
+        db_url = st.secrets["DATABASE_URL"]
+    # 2. Check local environment variables next
+    elif os.getenv("DATABASE_URL"):
+        db_url = os.getenv("DATABASE_URL")
+    # 3. Fallback to your local hardcoded settings for local testing
+    else:
+        DB_USER = "postgres"
+        DB_PASSWORD = "postgres123"
+        DB_HOST = "localhost"
+        DB_PORT = "5432"
+        DB_NAME = "ecommerce_db"
+        db_url = f'postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
+        
+    return create_engine(db_url)
 
 engine = get_engine()
 

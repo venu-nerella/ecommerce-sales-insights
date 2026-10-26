@@ -29,7 +29,6 @@ An end-to-end cloud-deployed data engineering and analytics pipeline built with 
    ```bash
    git clone [https://github.com/venu-nerella/ecommerce-sales-insights.git](https://github.com/venu-nerella/ecommerce-sales-insights.git)
    cd ecommerce-sales-insights
-
 1.Set up a virtual environment:
 Bash
 python -m venv venv

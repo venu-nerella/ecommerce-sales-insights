@@ -28,10 +28,22 @@ An end-to-end cloud-deployed data engineering and analytics pipeline built with 
 1. **Clone the repository**:
    ```bash
    git clone [https://github.com/venu-nerella/ecommerce-sales-insights.git](https://github.com/venu-nerella/ecommerce-sales-insights.git)
+   cd ecommerce-sales-insights
 
-   python -m venv venv
+1.Set up a virtual environment:
+Bash
+python -m venv venv
 source venv/Scripts/activate  # On Windows: .\venv\Scripts\Activate.ps1
+
+2.Install dependencies:
+Bash
 pip install -r requirements.txt
+
+3.Configure your database connection:
+Bash
 $env:DATABASE_URL="your_neon_connection_string"
+
+4.Seed the database & run the app:
 python load_to_postgres.py
 streamlit run app.py
+   

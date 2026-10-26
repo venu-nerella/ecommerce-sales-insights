@@ -43,12 +43,11 @@ An end-to-end cloud-deployed data engineering and analytics pipeline built with 
 4. **Configure your database connection**:
    ```bash
    $env:DATABASE_URL="your_neon_connection_string"   
-```
+   ```
 5. **Seed the database & run the app**:
    ```bash
    python load_to_postgres.py
    streamlit run app.py
-```
 
 ---
 

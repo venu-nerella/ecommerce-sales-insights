@@ -40,16 +40,17 @@ An end-to-end cloud-deployed data engineering and analytics pipeline built with 
    pip install -r requirements.txt
       ```   
 
-4. **Configure your database connection:**:
+4. **Configure your database connection**:
    ```bash
-   $env:DATABASE_URL="your_neon_connection_string"
+   $env:DATABASE_URL="your_neon_connection_string"   
+```
+5. **Seed the database & run the app**:
+   ```bash
+   python load_to_postgres.py
+   streamlit run app.py
 ```
 
-5. **Seed the database & run the app:**:
-   ```bash
-python load_to_postgres.py
-streamlit run app.py
-```
+---
 
-streamlit run app.py
-      ```   
+## 🌐 Live Demo
+Check out the live production application deployed on Streamlit Cloud: [E-Commerce Sales Insights Hub](https://venu-nerella-ecommerce-sales-insights.streamlit.app)

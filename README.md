@@ -35,5 +35,19 @@ An end-to-end cloud-deployed data engineering and analytics pipeline built with 
    python -m venv venv
    source venv/Scripts/activate  # On Windows: .\venv\Scripts\Activate.ps1
       ```
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+      ```   
 
-   
+3. **Configure your database connection:**:
+   ```bash
+python load_to_postgres.py
+streamlit run app.py
+```
+
+4. **Seed the database & run the app:**:
+   ```bash
+python load_to_postgres.py
+streamlit run app.py
+      ```   

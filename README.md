@@ -42,8 +42,8 @@ An end-to-end cloud-deployed data engineering and analytics pipeline built with 
 
 3. **Configure your database connection:**:
    ```bash
-python load_to_postgres.py
-streamlit run app.py
+   python load_to_postgres.py
+   streamlit run app.py
 ```
 
 4. **Seed the database & run the app:**:

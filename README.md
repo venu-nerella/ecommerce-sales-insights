@@ -29,3 +29,11 @@ An end-to-end cloud-deployed data engineering and analytics pipeline built with 
    ```bash
    git clone [https://github.com/venu-nerella/ecommerce-sales-insights.git](https://github.com/venu-nerella/ecommerce-sales-insights.git)
    cd ecommerce-sales-insights
+   ```
+1. **Set up a virtual environment**:
+   ```bash
+   python -m venv venv
+   source venv/Scripts/activate  # On Windows: .\venv\Scripts\Activate.ps1
+      ```
+
+   

@@ -1,29 +1,14 @@
 import streamlit as st
 import pandas as pd
-import os
 from sqlalchemy import create_engine
 
-# Page Configuration (Called ONLY ONCE)
+# Page Configuration
 st.set_page_config(page_title="E-Commerce Data Intelligence Hub", page_icon="🛍️", layout="wide")
 
-# Database Connection (Supports Streamlit Cloud Secrets and Local fallback)
+# Database Connection (Direct Neon Cloud Connection)
 @st.cache_resource
 def get_engine():
-    # 1. Check Streamlit Cloud Secrets first
-    if "DATABASE_URL" in st.secrets:
-        db_url = st.secrets["DATABASE_URL"]
-    # 2. Check local environment variables next
-    elif os.getenv("DATABASE_URL"):
-        db_url = os.getenv("DATABASE_URL")
-    # 3. Fallback to your local hardcoded settings for local testing
-    else:
-        DB_USER = "postgres"
-        DB_PASSWORD = "postgres123"
-        DB_HOST = "localhost"
-        DB_PORT = "5432"
-        DB_NAME = "ecommerce_db"
-        db_url = f'postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
-        
+    db_url = "postgresql+psycopg2://neondb_owner:npg_5QWYU3nKXDkr@ep-proud-dust-b720gk3x-pooler.c-13.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
     return create_engine(db_url)
 
 engine = get_engine()
